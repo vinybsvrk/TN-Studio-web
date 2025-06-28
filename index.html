@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TN Web Studio - Portfólio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* SEU CSS INTEGRADO */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial', sans-serif; }
+        body {
+            background: linear-gradient(270deg, #00f7ff, #00146c, #8a2be2);
+            background-size: 1400% 1400%;
+            animation: rainbow 80s linear infinite;
+            overflow-x: hidden;
+            color: white;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        @keyframes rainbow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInLeft {
+            0% { opacity: 0; transform: translateX(-100px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+
+        .fade-in-title {
+            animation: fadeInUp 1.5s ease forwards;
+        }
+
+        .video-animado {
+            opacity: 0;
+            animation: fadeInLeft 1.5s ease forwards;
+            border: 3px solid white;
+            border-radius: 10px;
+            box-shadow: 0 0 15px #00000088;
+            margin-bottom: 20px;
+        }
+
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .gradient-btn {
+            background: linear-gradient(45deg, #00f7ff, #ff5555);
+            border: none;
+            color: white;
+            font-weight: bold;
+            padding: 12px 30px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 247, 255, 0.3);
+            text-decoration: none;
+            display: inline-block;
+            margin: 5px;
+        }
+
+        .gradient-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 247, 255, 0.4);
+            color: white;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+
+        .tech-badge {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 100;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            flex: 1;
+            display: flex;
+            align-items: center;
+            border-radius: 15px;
+        }
+
+        .logo img {
+            height: 40px;
+            margin-left: 10px;
+            border: 2px solid white;
+            border-radius: 10px;
+            padding: 3px;
+            background-color: rgba(0, 0, 0, 0.5);
+            box-shadow: 0 0 10px #ffffff55;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #00dfd8;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero h1 { font-size: 3rem; margin-bottom: 20px; }
+        .hero p { font-size: 1.25rem; max-width: 600px; margin-bottom: 40px; }
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .tabela-servicos {
+            margin: 40px auto;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 0 20px #00000088;
+            width: 90%;
+            max-width: 800px;
+            text-align: center;
+        }
+
+        .tabela-servicos h2 {
+            margin-bottom: 20px;
+            font-size: 2rem;
+            color: #00ffff;
+        }
+
+        .tabela-servicos table {
+            width: 100%;
+            border-collapse: collapse;
+            color: white;
+        }
+
+        .tabela-servicos th, .tabela-servicos td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #ffffff33;
+        }
+
+        .tabela-servicos th {
+            background-color: #001f3f;
+            color: #00ffff;
+            text-transform: uppercase;
+        }
+
+        .tabela-servicos tr:hover {
+            background-color: #ffffff10;
+        }
+
+        section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .projeto-card {
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .projeto-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            z-index: 100;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        footer {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .hero p { font-size: 1rem; }
+        }
+
+        @media (max-width: 480px) {
+            header { flex-direction: column; align-items: flex-start; }
+            nav { flex-direction: column; width: 100%; align-items: flex-start; margin-top: 10px; }
+            nav a { padding: 8px 0; }
+        }
+
+        #sobre, #projetos, #contato { display: none; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            TN Studio <img src="TopNotch.png" alt="Logo TN Studio">
+        </div>
+        <nav>
+            <a href="#" onclick="voltarInicio()">Início</a>
+            <a href="#" onclick="mostrarSobre()">Sobre/Valores</a>
+            <a href="#" onclick="mostrarProjetos()">Projetos</a>
+            <a href="#" onclick="mostrarContato()">Contato</a>
+        </nav>
+    </header>
+
+    <div class="hero" id="tela-inicial">
+        <div class="glass-effect" style="padding: 40px; max-width: 800px;">
+            <h1 class="fade-in-title">Olá, eu sou o Viny, seu desenvolvedor web!</h1>
+            <p class="fade-in-title" style="animation-delay: 0.3s;">Criação de sites modernos, rápidos e responsivos com as melhores tecnologias</p>
+            <div class="buttons">
+                <a href="#" class="gradient-btn pulse-animation" onclick="mostrarContato()">Fale comigo</a>
+                <a href="#" class="gradient-btn" onclick="mostrarProjetos()">Ver Projetos</a>
+            </div>
+            <div style="margin-top: 30px; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;">
+                <span class="tech-badge">HTML5</span>
+                <span class="tech-badge">CSS3</span>
+                <span class="tech-badge">JavaScript</span>
+                <span class="tech-badge">Responsivo</span>
+                <span class="tech-badge">GitHub Pages</span>
+            </div>
+        </div>
+    </div>
+
+    <section id="sobre">
+        <div class="glass-effect" style="padding: 30px;">
+            <h2 class="fade-in-title">Um pouco sobre mim</h2>
+            <p style="margin: 20px 0;">Me chamo Vinicius Souza, moro em Irecê-BA. Sou um desenvolvedor full stack.Jr e crio soluções incríveis para web...</p>
+            <h3 style="margin: 30px 0 15px 0; color: #00ffff;">Como são feitos os sites?</h3>
+            <p>Uso HTML, CSS, JS e hospedo no GitHub Pages garantindo leveza e design moderno.</p>
+            <div class="tabela-servicos">
+                <h2>Serviços e Valores</h2>
+                <table>
+                    <tr><th>Serviço</th><th>Descrição</th><th>Preço</th></tr>
+                    <tr><td>Site Simples</td><td>1 página responsiva</td><td>R$ 90,00</td></tr>
+                    <tr><td>Site Completo</td><td>Até 5 páginas</td><td>R$ 200,00</td></tr>
+                    <tr><td>Manutenção</td><td>Atualizações e melhorias</td><td>R$ 45,00</td></tr>
+                    <tr><td>Landing Page</td><td>Botão WhatsApp</td><td>R$ 100,00</td></tr>
+                </table>
+            </div>
+            <div class="buttons"><a href="#" class="gradient-btn" onclick="voltarInicio()">Voltar</a></div>
+        </div>
+    </section>
+
+    <section id="projetos">
+        <div class="glass-effect" style="padding: 30px;">
+            <h2 class="fade-in-title">Meus Projetos</h2>
+            <div class="projeto-card card-hover">
+                <h3>Site Exemplo</h3>
+                <p>Site responsivo feito por mim.</p>
+                <video src="sitepizza.mp4" class="video-animado" style="width: 100%; max-width: 800px;" controls autoplay muted loop>
+</video>
+<a href="#" class="gradient-btn">Ver Projeto</a>
+            </div>
+            <div class="buttons"><a href="#" class="gradient-btn" onclick="voltarInicio()">Voltar</a></div>
+        </div>
+    </section>
+
+    <section id="contato">
+        <div class="glass-effect" style="padding: 30px; max-width: 600px; margin: 0 auto;">
+            <h2 class="fade-in-title">Entre em Contato</h2>
+            <form id="contact-form" style="display: flex; flex-direction: column; gap: 15px;">
+                <input type="text" id="nome" name="nome" placeholder="Seu Nome" required>
+                <input type="email" id="email" name="email" placeholder="Seu Email" required>
+                <input type="tel" id="whatsapp" name="whatsapp" placeholder="Seu WhatsApp">
+                <textarea id="mensagem" name="mensagem" placeholder="Sua Mensagem" rows="5" required></textarea>
+                <button type="submit" class="gradient-btn">Enviar Mensagem</button>
+            </form>
+            <div style="margin-top: 30px; text-align: center;">
+                <p>Ou me chame no WhatsApp:</p>
+                <a href="https://wa.me/7498153063" class="gradient-btn"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            </div>
+            <div class="buttons"><a href="#" class="gradient-btn" onclick="voltarInicio()">Voltar</a></div>
+        </div>
+    </section>
+
+    <section id="depoimentos" style="padding: 50px 20px; text-align: center;">
+        <h2 style="margin-bottom: 30px; font-size: 2rem;">O que dizem sobre meus trabalhos</h2>
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
+            <div class="glass-effect card-hover" style="padding: 20px; max-width: 300px;">
+                <p>"Transformou minha ideia em um site incrível!"</p>
+                <p style="font-weight: bold; margin-top: 10px;">- Cliente Satisfeito</p>
+            </div>
+            <div class="glass-effect card-hover" style="padding: 20px; max-width: 300px;">
+                <p>"Entrega rápida e excelente. Recomendo!"</p>
+                <p style="font-weight: bold; margin-top: 10px;">- Outro Cliente</p>
+            </div>
+        </div>
+    </section>
+
+    <a href="https://wa.me/7498153063" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+    <footer>
+        <p>&copy; 2025 TN Web Studio - Todos os direitos reservados</p>
+    </footer>
+
+    <script>
+        function esconderTelas() {
+            document.getElementById("tela-inicial").style.display = "none";
+            document.getElementById("sobre").style.display = "none";
+            document.getElementById("projetos").style.display = "none";
+            document.getElementById("contato").style.display = "none";
+        }
+
+        function voltarInicio() {
+            esconderTelas();
+            document.getElementById("tela-inicial").style.display = "flex";
+        }
+
+        function mostrarSobre() {
+            esconderTelas();
+            document.getElementById("sobre").style.display = "block";
+        }
+
+        function mostrarProjetos() {
+            esconderTelas();
+            document.getElementById("projetos").style.display = "block";
+        }
+
+        function mostrarContato() {
+            esconderTelas();
+            document.getElementById("contato").style.display = "block";
+        }
+
+        // Formulário de contato que envia para o email
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const nome = document.getElementById('nome').value;
+            const email = document.getElementById('email').value;
+            const whatsapp = document.getElementById('whatsapp').value;
+            const mensagem = document.getElementById('mensagem').value;
+            
+            const assunto = "Nova mensagem do site TN Studio";
+            const corpoEmail = `Nome: ${nome}%0AEmail: ${email}%0AWhatsApp: ${whatsapp}%0AMensagem: ${mensagem}`;
+            
+            window.location.href = `mailto:topnotchstudio01@gmail.com?subject=${assunto}&body=${corpoEmail}`;
+            
+            // Limpa o formulário
+            this.reset();
+            
+            // Mostra mensagem de sucesso
+            alert('Mensagem enviada com sucesso! Você será redirecionado para o seu cliente de email.');
+        });
+    </script>
+</body>
+</html>
