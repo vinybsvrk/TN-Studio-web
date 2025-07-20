@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -6,12 +6,15 @@
     <title>TN Web Studio - Portfólio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+    .Portfólio{
+      
+    }
         /* SEU CSS INTEGRADO */
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial', sans-serif; }
         body {
-            background: linear-gradient(270deg, #00f7ff, #00146c, #8a2be2);
+            background: linear-gradient(270deg, #eb0000, #00146c, #8a2be2);
             background-size: 1400% 1400%;
-            animation: rainbow 80s linear infinite;
+            animation: rainbow 40s linear infinite;
             overflow-x: hidden;
             color: white;
             min-height: 100vh;
@@ -79,7 +82,7 @@
         .gradient-btn {
             background: linear-gradient(45deg, #00f7ff, #3cff0cff);
             border: none;
-            color: Black;
+            color: ;
             font-weight: bold;
             padding: 12px 30px;
             border-radius: 30px;
@@ -89,6 +92,7 @@
             text-decoration: none;
             display: inline-block;
             margin: 5px;
+            
         }
 
         .gradient-btn:hover {
@@ -126,8 +130,14 @@
             background: rgba(0, 0, 0, 0.7);
             z-index: 100;
             flex-wrap: wrap;
+            main, .hero, section {
+    padding-top: 70px; /* ajuste conforme a altura real do seu header */
+}
         }
-
+        
+main, .hero, section {
+    padding-top: 70px; /* ajuste conforme a altura real do seu header */
+}
         .logo {
             font-size: 24px;
             font-weight: bold;
@@ -290,6 +300,9 @@
         }
 
         #sobre, #projetos, #contato { display: none; }
+        main, .hero, section {
+    padding-top: 70px;
+}
     </style>
 </head>
 <body>
@@ -348,7 +361,20 @@
             <h2 class="fade-in-title">Meus Projetos</h2>
             <div class="projeto-card card-hover">
                 <h3>Site Exemplo</h3>
-                <p>Site responsivo feito por mim.</p>
+                <div style="margin-bottom: 30px;">
+    <h3 style="color: #00ffff; margin-bottom: 20px;">Galeria de Imagens</h3>
+    <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+      <div>
+        <h1>Cardapio de bio instagram</h1>
+        <img src="img2.jpg" alt="Projeto 1" class="card-hover" style="width: 100%; max-width: 250px; border-radius: 10px; box-shadow: 0 0 10px #00000055;">
+        </div>
+        <div class="Portfólio">
+          <h1>Portfólio</h1>
+        <img src="img3.png" alt="Projeto 2" class="card-hover" style="width: 100%; max-width: 250px; border-radius: 10px; box-shadow: 0 0 10px #00000055;"></div>
+        <!-- Pode adicionar mais imagens assim -->
+    </div>
+</div>
+                <h1>Demostração</h1>
                 <video src="sitepizza.mp4" class="video-animado" style="width: 100%; max-width: 800px;" controls autoplay muted loop>
 </video>
 <a href="#" class="gradient-btn">Ver Projeto</a>
@@ -357,24 +383,34 @@
         </div>
     </section>
 
-    <section id="contato">
-        <div class="glass-effect" style="padding: 30px; max-width: 600px; margin: 0 auto;">
-            <h2 class="fade-in-title">Entre em Contato</h2>
-            <form id="contact-form" style="display: flex; flex-direction: column; gap: 15px;">
-                <input class="nome" type="text" id="nome" name="nome" placeholder="Seu Nome" required>
-                <input class="email"type="email" id="email" name="email" placeholder="Seu Email" required>
-                <input class="telefone"type="tel" id="whatsapp" name="whatsapp" placeholder="Seu WhatsApp">
-                <textarea id="mensagem" name="mensagem" placeholder="Sua Mensagem" rows="5" required></textarea>
-                <button type="submit" class="gradient-btn">Enviar Mensagem</button>
-            </form>
-            <div style="margin-top: 30px; text-align: center;">
-                <p>Ou me chame no WhatsApp:</p>
-                <a href="https://wa.me/7498153063" class="gradient-btn"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+<section id="contato">
+    <div class="glass-effect card-hover" style="padding: 40px; max-width: 700px; margin: 0 auto;">
+        <h2 class="fade-in-title" style="font-size: 2.2rem; margin-bottom: 20px;"><i class="fas fa-envelope"></i> Fale Comigo</h2>
+        <p style="margin-bottom: 30px; font-size: 1.1rem; color: #ddd;">Preencha os campos abaixo para enviar uma mensagem diretamente para meu e-mail:</p>
+        <form id="contact-form" style="display: flex; flex-direction: column; gap: 20px;">
+            <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                <input class="nome" type="text" id="nome" name="nome" placeholder="Seu Nome" required style="flex:1; padding: 12px; font-size: 1rem;">
+                <input class="email" type="email" id="email" name="email" placeholder="Seu Email" required style="flex:1; padding: 12px; font-size: 1rem;">
             </div>
-            <div class="buttons"><a href="#" class="gradient-btn" onclick="voltarInicio()">Voltar</a></div>
-        </div>
-    </section>
+            <input class="telefone" type="tel" id="whatsapp" name="whatsapp" placeholder="Seu WhatsApp" style="padding: 12px; font-size: 1rem;">
+            <textarea id="mensagem" name="mensagem" placeholder="Escreva sua mensagem..." rows="5" required style="padding: 12px; font-size: 1rem; border-radius: 5px;"></textarea>
+            <button type="submit" class="gradient-btn pulse-animation" style="align-self: center; font-size: 1.1rem;">
+                <i class="fas fa-paper-plane"></i> Enviar Mensagem
+            </button>
+        </form>
 
+        <div style="margin-top: 40px; text-align: center;">
+            <p style="margin-bottom: 10px; font-size: 1rem;">Ou me chame diretamente no WhatsApp:</p>
+            <a href="https://wa.me/7498153063" class="gradient-btn" style="display: inline-flex; align-items: center; gap: 10px;">
+                <i class="fab fa-whatsapp"></i> Conversar no WhatsApp
+            </a>
+        </div>
+
+        <div class="buttons" style="margin-top: 30px;">
+            <a href="#" class="gradient-btn" onclick="voltarInicio()">Voltar</a>
+        </div>
+    </div>
+</section>
     <section id="depoimentos" style="padding: 50px 20px; text-align: center;">
         <h2 style="margin-bottom: 30px; font-size: 2rem;">O que dizem sobre meus trabalhos</h2>
         <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
@@ -395,7 +431,54 @@
         <p>&copy; 2025 TN Web Studio - Todos os direitos reservados</p>
     </footer>
 
-    <script>
+  
+      <script>
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    const telas = ["tela-inicial", "sobre", "projetos", "contato"];
+    let telaAtual = 0;
+
+    function mostrarTela(index) {
+        esconderTelas();
+        const id = telas[index];
+        const elemento = document.getElementById(id);
+        if (elemento) {
+            if (id === "tela-inicial") {
+                elemento.style.display = "flex";
+            } else {
+                elemento.style.display = "block";
+            }
+        }
+    }
+
+    document.addEventListener("touchstart", function(e) {
+        touchStartX = e.changedTouches[0].screenX;
+    }, false);
+
+    document.addEventListener("touchend", function(e) {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+    }, false);
+
+    function handleSwipe() {
+        const deltaX = touchEndX - touchStartX;
+
+        if (Math.abs(deltaX) > 50) {
+            if (deltaX < 0 && telaAtual < telas.length - 1) {
+                telaAtual++;
+                mostrarTela(telaAtual);
+            } else if (deltaX > 0 && telaAtual > 0) {
+                telaAtual--;
+                mostrarTela(telaAtual);
+            }
+        }
+    }
+
+    // Quando a página carregar, mostra a primeira tela (início)
+    window.onload = function() {
+        mostrarTela(telaAtual);
+    }
         function esconderTelas() {
             document.getElementById("tela-inicial").style.display = "none";
             document.getElementById("sobre").style.display = "none";
